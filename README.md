@@ -2,7 +2,7 @@
 
 An interactive web application for analyzing A/B tests on e-commerce conversion data. Upload your test data and instantly see conversion rates, statistical significance, and a clear ship / no-ship recommendation.
 
-🔗 **Live demo:** [your-streamlit-cloud-link-here]
+🔗 **Live demo:** https://ab-test-analyzer-akshay.streamlit.app
 
 ---
 
@@ -52,7 +52,7 @@ The app will open in your browser at `http://localhost:8501`.
 
 ### Or use the live demo
 
-Visit the deployed app, upload your CSV (or use the simulated sample data), and explore the results.
+Visit https://ab-test-analyzer-akshay.streamlit.app — upload your CSV (or use the simulated sample data) and explore the results.
 
 ---
 
@@ -73,7 +73,6 @@ user_id,group,converted
 2,control,1
 3,variant,1
 4,variant,0
-...
 ```
 
 ---
@@ -112,46 +111,3 @@ This mirrors how real product teams make ship decisions — statistical signific
 ### Two-proportion z-test
 
 Tests whether two conversion rates come from populations with the same true rate. The pooled standard error is calculated under the null hypothesis that the rates are equal.
-
-```
-SE = sqrt( p_pool * (1 - p_pool) * (1/n1 + 1/n2) )
-z  = (p2 - p1) / SE
-p  = 2 * (1 - Φ(|z|))
-```
-
-### Confidence interval (Wald)
-
-```
-CI = p ± z * sqrt( p * (1 - p) / n )
-```
-
-For most A/B tests with reasonable sample sizes, the Wald interval is fine. For very small samples or rates near 0 or 1, more advanced methods (Wilson, Clopper-Pearson) would be more appropriate — a possible future enhancement.
-
----
-
-## 🔮 Future Enhancements
-
-- [ ] Sample size calculator (how many users do I need to detect X% lift?)
-- [ ] Sequential testing support
-- [ ] Bayesian A/B testing alongside frequentist
-- [ ] Multi-variant (A/B/C/n) tests
-- [ ] Segment analysis (lift by user segment)
-
----
-
-## 📚 Why I Built This
-
-Working in a production ML pipeline at Shelf Watch, I see how much business decisions depend on rigorous experimentation — but it's easy to get statistical significance wrong, and a lot of teams ship features based on lift alone. I wanted to build a tool that combines both, in a way that's accessible to non-statisticians but still statistically sound.
-
----
-
-## 👤 Author
-
-**Akshay Sarwade**
-🔗 [LinkedIn](https://www.linkedin.com/in/akshay0sarwade) • [GitHub](https://github.com/AkshaySarwade) • akshaysarwade00@gmail.com
-
----
-
-## 📄 License
-
-MIT — feel free to fork, learn from, and build on this.
